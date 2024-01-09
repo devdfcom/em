@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:em_docs/theme/app_images.dart';
 
 class BackgroundWidget extends StatelessWidget {
   const BackgroundWidget({required this.child, super.key});
@@ -11,9 +12,7 @@ class BackgroundWidget extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: ResizeImage(
-              AssetImage(MediaQuery.of(context).platformBrightness == Brightness.dark
-                  ? 'images/dark.jpg'
-                  : 'images/light.jpg'),
+              AssetImage(const AppImages().backgroundDark),
               height: MediaQuery.of(context).size.height.toInt(),
               policy: ResizeImagePolicy.fit,
               allowUpscaling: true,
