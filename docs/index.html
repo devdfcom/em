@@ -1,56 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="/em/">
-
+  <base href="/">
   <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <!--  Title & Description -->
+  <title>DevDF Estate Manager</title>
   <meta name="description" content="DevDF Estate Manager Docs">
 
   <!-- iOS meta tags & icons -->
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="em_docs">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <meta name="apple-mobile-web-app-title" content="DevDF Estate Manager">
+  <link rel="apple-touch-icon" href="icons/icon-192.webp">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
 
-  <title>em_docs</title>
+  <!-- PWA Manifest -->
   <link rel="manifest" href="manifest.json">
 
-  <script>
-    // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = "1044878808";
-  </script>
-  <!-- This script adds the flutter initialization JS code -->
+  <script>const serviceWorkerVersion = "3039370094";</script>
   <script src="flutter.js" defer></script>
 </head>
 <body>
+<style>
+  body {
+    background-color: #030303;
+  }
+</style>
+
+<!-- Loading indicator -->
+<div id="loading">
+  <style>
+    body {
+      inset: 0;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      position: fixed;
+    }
+
+    #loading {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      width: 100%;
+    }
+
+    #loading img {
+      animation: 1s ease-in-out 0s infinite alternate breathe;
+      opacity: .7;
+      transition: opacity .4s;
+    }
+
+    #loading.done img {
+      opacity: 1;
+    }
+
+    @keyframes breathe {
+      from { transform: scale(1) }
+      to { transform: scale(0.95) }
+    }
+  </style>
+  <img src="icons/icon-192.webp" alt="Loading..." />
+</div>
   <script>
-    window.addEventListener('load', function(ev) {
-      // Download main.dart.js
+    window.addEventListener('load', function() {
+      const loading = document.querySelector('#loading');
+
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
         },
         onEntrypointLoaded: function(engineInitializer) {
+          loading.classList.add('done');
+
           engineInitializer.initializeEngine().then(function(appRunner) {
             appRunner.runApp();
-          });
+          }).then(() => window.setTimeout(() => loading.remove(), 200));
         }
       });
     });

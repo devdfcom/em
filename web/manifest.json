@@ -1,32 +1,46 @@
 {
-    "name": "em_docs",
-    "short_name": "em_docs",
+    "name": "DevDF Estate Manager",
+    "short_name": "Estate Manager",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "DevDF Estate Manager Docs",
+    "background_color": "#030303",
+    "theme_color": "#030303",
+    "description": "Helps you manage estate as an estate manager",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
         {
-            "src": "icons/Icon-192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "icons/Icon-512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        },
-        {
-            "src": "icons/Icon-maskable-192.png",
-            "sizes": "192x192",
+            "src": "icons/icon-48.png",
+            "sizes": "48x48",
             "type": "image/png",
             "purpose": "maskable"
         },
         {
-            "src": "icons/Icon-maskable-512.png",
+            "src": "icons/icon-72.png",
+            "sizes": "72x72",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/icon-96.png",
+            "sizes": "96x96",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/icon-128.png",
+            "sizes": "128x128",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/icon-192.webp",
+            "sizes": "192x192",
+            "type": "image/webp",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/icon-512.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "maskable"
